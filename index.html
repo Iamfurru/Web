@@ -8,10 +8,9 @@
 <style>
 :root{
   --black:#000;
-  --dark:#111;
+  --white:#fff;
   --gray:#888;
   --light:#f4f4f4;
-  --white:#fff;
 }
 
 body{
@@ -20,9 +19,9 @@ body{
   display:flex;
   align-items:center;
   justify-content:center;
-  font-family:system-ui, sans-serif;
-  background:linear-gradient(to bottom, var(--white), var(--light));
-  color:var(--dark);
+  font-family:'JetBrains Mono', monospace, monospace;
+  background:linear-gradient(to bottom, var(--white), var(--black));
+  color:var(--black);
 }
 
 .container{
@@ -32,7 +31,13 @@ body{
   border:1px solid #ddd;
   border-radius:18px;
   text-align:center;
-  box-shadow:0 10px 40px rgba(0,0,0,0.08);
+  box-shadow:0 20px 60px rgba(0,0,0,0.15);
+}
+
+.logo img{
+  width:120px;
+  height:auto;
+  margin-bottom:24px;
 }
 
 .code{
@@ -40,6 +45,22 @@ body{
   font-weight:700;
   letter-spacing:4px;
   color:var(--black);
+  position:relative;
+}
+
+.code::after {
+  content: '';
+  display: block;
+  width:50%;
+  height:3px;
+  margin:8px auto 0;
+  background:#000;
+  animation: scan 1.5s infinite alternate;
+}
+
+@keyframes scan {
+  from {transform: scaleX(0);}
+  to {transform: scaleX(1);}
 }
 
 h1{
@@ -70,6 +91,11 @@ p{
 <body>
 
 <div class="container">
+
+  <div class="logo">
+    <img src="logo-iaf.png" alt="IAF Logo">
+  </div>
+
   <div class="code">503</div>
 
   <h1>Service Unavailable</h1>
