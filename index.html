@@ -1,382 +1,203 @@
 <!DOCTYPE html>
-<html lang="id">
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>IAF Digital Engineering - Furru Project</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        }
-        
-        body {
-            background-color: #000;
-            color: #fff;
-            line-height: 1.6;
-            overflow-x: hidden;
-        }
-        
-        /* Gradasi warna dari #000 ke #fff */
-        .gradient-bg {
-            background: linear-gradient(135deg, #000 0%, #333 50%, #666 75%, #fff 100%);
-            min-height: 100vh;
-            padding-bottom: 50px;
-        }
-        
-        /* Header & Logo */
-        header {
-            background-color: #fff;
-            padding: 20px 0;
-            border-bottom: 3px solid #000;
-        }
-        
-        .logo-container {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 0 20px;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-        
-        .logo-placeholder {
-            width: 80px;
-            height: 80px;
-            background-color: #fff;
-            border: 2px solid #000;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-right: 20px;
-            font-weight: bold;
-            color: #000;
-            font-size: 14px;
-        }
-        
-        .company-name {
-            color: #000;
-            font-size: 2.8rem;
-            font-weight: 800;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-        }
-        
-        /* Container utama */
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-        
-        /* Hero Section */
-        .hero {
-            padding: 60px 0 40px;
-            text-align: center;
-        }
-        
-        .hero h1 {
-            font-size: 3.5rem;
-            margin-bottom: 20px;
-            background: linear-gradient(90deg, #fff, #ccc);
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-        
-        .hero p {
-            font-size: 1.2rem;
-            max-width: 800px;
-            margin: 0 auto 30px;
-            color: #ddd;
-        }
-        
-        /* Section Styling */
-        section {
-            background-color: rgba(0, 0, 0, 0.7);
-            border-radius: 10px;
-            padding: 30px;
-            margin-bottom: 30px;
-            border-left: 5px solid #fff;
-            box-shadow: 0 5px 15px rgba(255, 255, 255, 0.05);
-        }
-        
-        h2 {
-            color: #fff;
-            font-size: 2rem;
-            margin-bottom: 20px;
-            padding-bottom: 10px;
-            border-bottom: 2px solid #fff;
-        }
-        
-        h3 {
-            color: #fff;
-            font-size: 1.5rem;
-            margin: 25px 0 15px;
-        }
-        
-        p {
-            margin-bottom: 15px;
-            color: #ccc;
-        }
-        
-        /* List styling */
-        ul, ol {
-            margin-left: 20px;
-            margin-bottom: 20px;
-            color: #ccc;
-        }
-        
-        li {
-            margin-bottom: 8px;
-        }
-        
-        /* Staff Cards */
-        .staff-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 20px;
-            margin-top: 20px;
-        }
-        
-        .staff-card {
-            background: linear-gradient(135deg, #222, #000);
-            border-radius: 8px;
-            padding: 20px;
-            border: 1px solid #444;
-            transition: transform 0.3s, border-color 0.3s;
-        }
-        
-        .staff-card:hover {
-            transform: translateY(-5px);
-            border-color: #fff;
-        }
-        
-        .staff-name {
-            color: #fff;
-            font-size: 1.4rem;
-            margin-bottom: 10px;
-        }
-        
-        .staff-detail {
-            color: #aaa;
-            font-size: 0.95rem;
-            margin-bottom: 5px;
-        }
-        
-        /* Instances styling */
-        .instances-container {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 15px;
-            margin-top: 20px;
-        }
-        
-        .instance-card {
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 8px;
-            padding: 15px;
-            flex: 1;
-            min-width: 200px;
-            border: 1px solid #444;
-        }
-        
-        .instance-name {
-            color: #fff;
-            font-weight: bold;
-            font-size: 1.1rem;
-            margin-bottom: 5px;
-        }
-        
-        .instance-detail {
-            color: #aaa;
-            font-size: 0.9rem;
-        }
-        
-        /* Warning & Important */
-        .warning {
-            background-color: rgba(255, 50, 50, 0.1);
-            border-left-color: #ff3333;
-            padding: 20px;
-            margin: 20px 0;
-        }
-        
-        .important {
-            background-color: rgba(255, 255, 0, 0.1);
-            border-left-color: #ffff00;
-            padding: 20px;
-            margin: 20px 0;
-        }
-        
-        /* Footer */
-        footer {
-            text-align: center;
-            padding: 30px 0;
-            margin-top: 50px;
-            border-top: 1px solid #444;
-            color: #aaa;
-            font-size: 0.9rem;
-        }
-        
-        /* Responsive */
-        @media (max-width: 768px) {
-            .company-name {
-                font-size: 2rem;
-            }
-            
-            .hero h1 {
-                font-size: 2.5rem;
-            }
-            
-            section {
-                padding: 20px;
-            }
-            
-            .staff-container {
-                grid-template-columns: 1fr;
-            }
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>IAF Digital Engineering</title>
+<style>
+  /* Root colors dan gradasi */
+  :root {
+    --white: #fff;
+    --black: #000;
+    --gradient: linear-gradient(135deg, #fff, #000);
+    --font: 'Inter', sans-serif;
+  }
+
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: var(--font);
+  }
+
+  body {
+    background: var(--white);
+    color: var(--black);
+    line-height: 1.6;
+    padding: 20px;
+  }
+
+  header {
+    text-align: center;
+    padding: 40px 20px;
+    background: var(--gradient);
+    color: var(--white);
+  }
+
+  header img {
+    max-width: 150px;
+    margin-bottom: 20px;
+  }
+
+  h1 {
+    font-size: 2.5em;
+    margin-bottom: 10px;
+  }
+
+  section {
+    margin: 40px 0;
+    padding: 20px;
+    background: var(--white);
+    border-left: 5px solid var(--black);
+  }
+
+  h2 {
+    margin-bottom: 15px;
+    font-size: 1.8em;
+    color: var(--black);
+  }
+
+  p, li {
+    margin-bottom: 10px;
+  }
+
+  ul {
+    margin-left: 20px;
+  }
+
+  .staff, .instances {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+  }
+
+  .card {
+    border: 1px solid var(--black);
+    padding: 15px;
+    border-radius: 8px;
+    background: var(--white);
+  }
+
+  .card h3 {
+    margin-bottom: 10px;
+  }
+
+  footer {
+    text-align: center;
+    margin-top: 40px;
+    padding: 20px;
+    border-top: 1px solid var(--black);
+  }
+</style>
 </head>
 <body>
-    <div class="gradient-bg">
-        <header>
-            <div class="logo-container">
-                <div class="logo-placeholder">
-                    IAF<br>LOGO
-                </div>
-                <h1 class="company-name">IAF Digital Engineering</h1>
-            </div>
-        </header>
-        
-        <div class="container">
-            <section class="hero">
-                <h1>Furru Project</h1>
-                <p>"i am Furru" adalah percobaan membuat AI yang berperilaku seperti manusia (bisa merasa bosan, takut, penasaran, dll)</p>
-            </section>
-            
-            <section>
-                <h2>Deskripsi Furru Project</h2>
-                <p>Furru project atau "i am Furru" adalah percobaan membuat AI yang berperilaku seperti manusia (bisa merasa bosan, takut, penasaran, dll)</p>
-                
-                <h3>Infrastruktur Furru Project</h3>
-                <p>Furru project menggunakan model AI IAF-I1 (Intelligence 1). IAF-I1 memiliki arsitektur yang mirip dengan GPT-4o milik OpenAI dengan sedikit modifikasi seperti:</p>
-                <ul>
-                    <li>Dihapusnya token, protokol keamanan dan emergency cut off yang membuat model AI ini hampir tidak memiliki batasan seperti otak manusia, tapi itu hanya dalam tubuh virtualnya. Jadi dia tidak dapat mengotak-atik back end tanpa extension. Dia bisa melakukan apapun yang dia mau selama berada di tubuh virtualnya.</li>
-                    <li>Diberikan variabel seperti rasa bosan, takut, penasaran dan sosial need seperti manusia. Dia akan melakukan sesuatu untuk memuaskan kebutuhan itu.</li>
-                </ul>
-                
-                <h3>Deskripsi IAF-I1 Furru</h3>
-                <p>IAF-I1 Furru dilatih menggunakan memory dari individu atas nama █████ █████. Memory dari sang individu lahir sampai usia 14 tahun ditransfer ke dalam dataset IAF-I1 Furru tentunya dengan persetujuan dari individu atas nama Bevan Ramon.</p>
-                
-                <h3>Interaksi antara █████ █████ dengan Staff IAF</h3>
-                <p>Sebelum memory-nya ditransfer, Bevan Ramon sudah berkenalan dengan staff IAF yang akan ditugaskan dalam Furru project. Informasi tambahan dari staff: "kami menjadi teman, kita sering hangout dengan █████ █████".</p>
-                
-                <h3>Penjelasan lebih lanjut dengan sistem variabel</h3>
-                <p>Variabel tersebut sudah di-set berdasarkan preferensi █████ █████. Jadi Furru memiliki interes, rasa takut dll yang mirip dengan █████ █████. Contoh: ketika dia lagi bosan, dia akan melakukan hal yang sama dengan █████ █████ ketika lagi bosan.</p>
-            </section>
-            
-            <section class="warning">
-                <h2>Resiko</h2>
-                <p>Karena AI ini memiliki perilaku yang sangat mirip dengan manusia, dia bisa jadi memiliki emosi yang tidak stabil yang dapat mengakibatkan perilaku yang tidak terduga. Jika Furru memiliki relasi yang sangat brutal, dia harus ditinggalkan sendiri sampai stabil. Jika terlalu parah, senjata terakhir adalah mematikan paksa servernya/hostnya, tapi ini akan menimbulkan permasalahan moral.</p>
-            </section>
-            
-            <section>
-                <h2>Deployment</h2>
-                <p>Furru di-drop di VRChat tentunya sambil diawasi oleh staff IAF, tapi terkadang dia boleh eksplorasi sendirian.</p>
-            </section>
-            
-            <section>
-                <h2>Instances Model</h2>
-                <div class="instances-container">
-                    <div class="instance-card">
-                        <div class="instance-name">01 Furru FP-001</div>
-                        <div class="instance-detail">Base: Deuzear (Active) Deployment: 11/08/2025</div>
-                    </div>
-                    <div class="instance-card">
-                        <div class="instance-name">02 Furru FP-002</div>
-                        <div class="instance-detail">Base: alphazear (Active) Deployment: 27/10/2025</div>
-                    </div>
-                    <div class="instance-card">
-                        <div class="instance-name">03 Furru FP-003</div>
-                        <div class="instance-detail">Base: Chibigen (Active) Deployment: 07/11/2025</div>
-                    </div>
-                    <div class="instance-card">
-                        <div class="instance-name">04 Furru FP-004</div>
-                        <div class="instance-detail">Base: winterpal Feline (Active) Deployment: 13/11/2025</div>
-                    </div>
-                    <div class="instance-card">
-                        <div class="instance-name">05 Furru FP-005</div>
-                        <div class="instance-detail">Base: winterpal Feline (Active) Deployment: 13/11/2025</div>
-                    </div>
-                </div>
-            </section>
-            
-            <section>
-                <h2>Staff</h2>
-                <p>List staff yang memiliki security clearance untuk kontak dengan Furru.</p>
-                
-                <h3>Staff Kategori HS</h3>
-                <div class="staff-container">
-                    <div class="staff-card">
-                        <div class="staff-name">Leon</div>
-                        <div class="staff-detail">Unit ID: 0MG9VQ5ZM5</div>
-                        <div class="staff-detail">Nama Panjang: Leonard Alvaro</div>
-                        <div class="staff-detail">Umur: 24 tahun</div>
-                        <div class="staff-detail">Gender: Male</div>
-                        <div class="staff-detail">Phone: +2-21913-01307-92217-52613-5</div>
-                    </div>
-                    
-                    <div class="staff-card">
-                        <div class="staff-name">Ray</div>
-                        <div class="staff-detail">Unit ID: 1BC9TZ7RM5</div>
-                        <div class="staff-detail">Nama Panjang: Raymond Ezra</div>
-                        <div class="staff-detail">Umur: 22 tahun</div>
-                        <div class="staff-detail">Gender: Male</div>
-                        <div class="staff-detail">Phone: +2-21913-10203-92026-71813-5</div>
-                    </div>
-                    
-                    <div class="staff-card">
-                        <div class="staff-name">Zeta</div>
-                        <div class="staff-detail">Unit ID: 5XA6NY3VL8</div>
-                        <div class="staff-detail">Nama Panjang: Zeta Elvira</div>
-                        <div class="staff-detail">Umur: 22 tahun</div>
-                        <div class="staff-detail">Gender: Female</div>
-                        <div class="staff-detail">Phone: +2-21913-52401-61425-32212-8</div>
-                    </div>
-                    
-                    <div class="staff-card">
-                        <div class="staff-name">Sky</div>
-                        <div class="staff-detail">Unit ID: 8PE4TR9DV4</div>
-                        <div class="staff-detail">Nama Panjang: Skylar Nathaniel</div>
-                        <div class="staff-detail">Umur: 24 tahun</div>
-                        <div class="staff-detail">Gender: Female</div>
-                        <div class="staff-detail">Phone: +2-21913-81605-42018-90422-4</div>
-                    </div>
-                    
-                    <div class="staff-card">
-                        <div class="staff-name">Iris</div>
-                        <div class="staff-detail">Unit ID: 9DD4OC9GQ3</div>
-                        <div class="staff-detail">Nama Panjang: Iris Caelina Novarex</div>
-                        <div class="staff-detail">Umur: 26 tahun</div>
-                        <div class="staff-detail">Gender: Female</div>
-                        <div class="staff-detail">Phone: +2-21913-90204-31509-17217-3</div>
-                    </div>
-                    
-                    <div class="staff-card">
-                        <div class="staff-name">Blaze</div>
-                        <div class="staff-detail">Unit ID: 4BU0HW3YF0</div>
-                        <div class="staff-detail">Nama Panjang: Blaze Vortan Ignisar</div>
-                        <div class="staff-detail">Umur: 22 tahun</div>
-                        <div class="staff-detail">Gender: Male</div>
-                        <div class="staff-detail">Phone: +2-21913-40221-20823-25100-0</div>
-                    </div>
-                    
-                    <div class="staff-card">
-                        <div class="staff-name">Riven</div>
-                        <div class="staff-detail">Unit ID: 0GB7NR7ZR3</div>
-                        <div class="staff-detail">Nama Panjang: Riven Malach
+
+<header>
+  <img src="Iaf-logo.png" alt="IAF Digital Engineering Logo">
+  <h1>IAF Digital Engineering</h1>
+</header>
+
+<section>
+  <h2>Deskripsi Furru Project</h2>
+  <p>Furru project atau "I am Furru" adalah percobaan membuat AI yang berperilaku seperti manusia (bisa merasa bosan, takut, penasaran, dll).</p>
+  <h3>Infrastruktur</h3>
+  <p>Furru project menggunakan model AI <strong>IAF-I1 (Intelligence 1)</strong>. Model ini mirip dengan GPT-4o milik OpenAI dengan beberapa modifikasi khusus.</p>
+  <ul>
+    <li>Hampir tidak memiliki batasan dalam tubuh virtualnya.</li>
+    <li>Diberikan variabel rasa bosan, takut, penasaran, dan kebutuhan sosial seperti manusia.</li>
+    <li>Memory individu █████ █████ dari lahir sampai usia 14 tahun ditransfer ke dalam dataset AI.</li>
+  </ul>
+  <p>AI ini dipantau dan terkadang diperbolehkan eksplorasi sendiri di VRChat.</p>
+</section>
+
+<section>
+  <h2>Instances Model</h2>
+  <div class="instances">
+    <div class="card">
+      <h3>FP-001 (Deuzear)</h3>
+      <p>Status: Active</p>
+      <p>Deployment: 11/08/2025</p>
+    </div>
+    <div class="card">
+      <h3>FP-002 (Alphazear)</h3>
+      <p>Status: Active</p>
+      <p>Deployment: 27/10/2025</p>
+    </div>
+    <div class="card">
+      <h3>FP-003 (Chibigen)</h3>
+      <p>Status: Active</p>
+      <p>Deployment: 07/11/2025</p>
+    </div>
+    <div class="card">
+      <h3>FP-004 (Winterpal Feline)</h3>
+      <p>Status: Active</p>
+      <p>Deployment: 13/11/2025</p>
+    </div>
+    <div class="card">
+      <h3>FP-005 (Winterpal Feline)</h3>
+      <p>Status: Active</p>
+      <p>Deployment: 13/11/2025</p>
+    </div>
+  </div>
+</section>
+
+<section>
+  <h2>Staff</h2>
+  <div class="staff">
+    <div class="card">
+      <h3>Leon</h3>
+      <p>Unit ID: 0MG9VQ5ZM5</p>
+      <p>Age: 24, Male</p>
+      <p>Phone: +2-21913-01307-92217-52613-5</p>
+    </div>
+    <div class="card">
+      <h3>Ray</h3>
+      <p>Unit ID: 1BC9TZ7RM5</p>
+      <p>Age: 22, Male</p>
+      <p>Phone: +2-21913-10203-92026-71813-5</p>
+    </div>
+    <div class="card">
+      <h3>Zeta</h3>
+      <p>Unit ID: 5XA6NY3VL8</p>
+      <p>Age: 22, Female</p>
+      <p>Phone: +2-21913-52401-61425-32212-8</p>
+    </div>
+    <div class="card">
+      <h3>Sky</h3>
+      <p>Unit ID: 8PE4TR9DV4</p>
+      <p>Age: 24, Female</p>
+      <p>Phone: +2-21913-81605-42018-90422-4</p>
+    </div>
+    <div class="card">
+      <h3>Iris</h3>
+      <p>Unit ID: 9DD4OC9GQ3</p>
+      <p>Age: 26, Female</p>
+      <p>Phone: +2-21913-90204-31509-17217-3</p>
+    </div>
+    <div class="card">
+      <h3>Blaze</h3>
+      <p>Unit ID: 4BU0HW3YF0</p>
+      <p>Age: 22, Male</p>
+      <p>Phone: +2-21913-40221-20823-25100-0</p>
+    </div>
+    <div class="card">
+      <h3>Riven</h3>
+      <p>Unit ID: 0GB7NR7ZR3</p>
+      <p>Age: 24, Male</p>
+      <p>Phone: +2-21913-00702-18214-18726-3</p>
+    </div>
+    <div class="card">
+      <h3>Velza</h3>
+      <p>Unit ID: 0VL7EZ0RA0</p>
+      <p>Age: 20, Female</p>
+      <p>Phone: +2-21913-18006-13119-19019-7</p>
+    </div>
+  </div>
+</section>
+
+<footer>
+  &copy; 2025 IAF Digital Engineering
+</footer>
+
+</body>
+</html>
