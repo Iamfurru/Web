@@ -18,6 +18,8 @@
       color: white;
     }
 
+    /* ================= HERO ================= */
+
     .hero {
       position: relative;
       width: 100%;
@@ -29,7 +31,6 @@
       text-align: center;
     }
 
-    /* Video background */
     .hero video {
       position: absolute;
       top: 50%;
@@ -42,7 +43,6 @@
       z-index: 1;
     }
 
-    /* Overlay content */
     .hero-content {
       position: relative;
       z-index: 2;
@@ -83,25 +83,70 @@
       background: rgba(255,255,255,0.1);
       border-color: white;
     }
+
+    /* ============ HERO → PRODUCT TRANSITION ============ */
+
+    .hero-fade {
+      height: 240px;
+      background: linear-gradient(
+        to bottom,
+        rgba(0,0,0,0.8) 0%,
+        rgba(255,255,255,1) 100%
+      );
+    }
+
+    /* ================= PRODUCT SECTION ================= */
+
+    .product {
+      background: #ffffff;
+      color: #000;
+      padding: 96px 24px;
+      text-align: center;
+    }
+
+    .product h2 {
+      font-size: 2.2rem;
+      margin-bottom: 16px;
+    }
+
+    .product p {
+      max-width: 720px;
+      margin: 0 auto;
+      font-size: 1.05rem;
+      opacity: 0.75;
+    }
   </style>
 </head>
 <body>
 
+  <!-- HERO -->
   <section class="hero">
     <video autoplay muted loop playsinline>
       <source src="Hero.mp4" type="video/mp4">
     </video>
 
     <div class="hero-content">
-      <h1>Meet Furru project</h1>
-      <p>when ai have feeling</p>
+      <h1>Hero Title</h1>
+      <p>Hero subtitle / description</p>
 
       <div class="hero-buttons">
-        <button class="hero-btn">what is Furru project?</button>
-        <button class="hero-btn">Furru interactive capability</button>
-        <button class="hero-btn">Furru personality</button>
+        <button class="hero-btn">Button 1</button>
+        <button class="hero-btn">Button 2</button>
+        <button class="hero-btn">Button 3</button>
       </div>
     </div>
+  </section>
+
+  <!-- TRANSITION -->
+  <section class="hero-fade"></section>
+
+  <!-- PRODUCT -->
+  <section class="product">
+    <h2>Product Section</h2>
+    <p>
+      Isi konten product lu di sini. Section ini sengaja putih solid
+      biar kontras, clean, dan fokus ke informasi.
+    </p>
   </section>
 
 </body>
