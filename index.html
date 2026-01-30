@@ -84,24 +84,25 @@
       border-color: white;
     }
 
-    /* ============ HERO → PRODUCT TRANSITION ============ */
-
-    .hero-fade {
-      height: 240px;
-      background: linear-gradient(
-        to bottom,
-        rgba(0,0,0,0.8) 0%,
-        rgba(255,255,255,1) 100%
-      );
-    }
-
-    /* ================= PRODUCT SECTION ================= */
+    /* ================= PRODUCT ================= */
 
     .product {
-      background: #ffffff;
-      color: #000;
+      background: #111; /* dark mode friendly */
+      color: #eaeaea;
       padding: 96px 24px;
+    }
+
+    .product-inner {
+      max-width: 900px;
+      margin: 0 auto;
       text-align: center;
+    }
+
+    .product-divider {
+      width: 120px;
+      height: 2px;
+      background: rgba(255,255,255,0.15);
+      margin: 0 auto 32px;
     }
 
     .product h2 {
@@ -110,10 +111,8 @@
     }
 
     .product p {
-      max-width: 720px;
-      margin: 0 auto;
       font-size: 1.05rem;
-      opacity: 0.75;
+      opacity: 0.8;
     }
   </style>
 </head>
@@ -137,16 +136,16 @@
     </div>
   </section>
 
-  <!-- TRANSITION -->
-  <section class="hero-fade"></section>
-
   <!-- PRODUCT -->
   <section class="product">
-    <h2>Product Section</h2>
-    <p>
-      Isi konten product lu di sini. Section ini sengaja putih solid
-      biar kontras, clean, dan fokus ke informasi.
-    </p>
+    <div class="product-inner">
+      <div class="product-divider"></div>
+      <h2>Product Section</h2>
+      <p>
+        Konten produk lu di sini. Walaupun cuma text,
+        section ini tetap kebaca, rapi, dan nggak kosong.
+      </p>
+    </div>
   </section>
 
 </body>
