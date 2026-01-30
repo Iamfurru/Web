@@ -84,35 +84,43 @@
       border-color: white;
     }
 
-    /* ================= PRODUCT ================= */
+    /* ================= ITEM SECTION ================= */
 
-    .product {
-      background: #111; /* dark mode friendly */
-      color: #eaeaea;
+    .items {
+      background: #0f0f0f; /* slightly brighter than hero */
       padding: 96px 24px;
     }
 
-    .product-inner {
-      max-width: 900px;
+    .items-grid {
+      max-width: 1100px;
       margin: 0 auto;
-      text-align: center;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 24px;
     }
 
-    .product-divider {
-      width: 120px;
-      height: 2px;
-      background: rgba(255,255,255,0.15);
-      margin: 0 auto 32px;
+    .item-card {
+      background: #ffffff;
+      color: #000;
+      border-radius: 16px;
+      padding: 24px;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.25);
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
     }
 
-    .product h2 {
-      font-size: 2.2rem;
-      margin-bottom: 16px;
+    .item-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 30px 60px rgba(0,0,0,0.35);
     }
 
-    .product p {
-      font-size: 1.05rem;
-      opacity: 0.8;
+    .item-title {
+      font-size: 1.2rem;
+      margin-bottom: 8px;
+    }
+
+    .item-desc {
+      font-size: 0.95rem;
+      opacity: 0.7;
     }
   </style>
 </head>
@@ -136,15 +144,23 @@
     </div>
   </section>
 
-  <!-- PRODUCT -->
-  <section class="product">
-    <div class="product-inner">
-      <div class="product-divider"></div>
-      <h2>Product Section</h2>
-      <p>
-        Konten produk lu di sini. Walaupun cuma text,
-        section ini tetap kebaca, rapi, dan nggak kosong.
-      </p>
+  <!-- ITEMS -->
+  <section class="items">
+    <div class="items-grid">
+      <div class="item-card">
+        <div class="item-title">Item 1</div>
+        <div class="item-desc">Deskripsi item</div>
+      </div>
+
+      <div class="item-card">
+        <div class="item-title">Item 2</div>
+        <div class="item-desc">Deskripsi item</div>
+      </div>
+
+      <div class="item-card">
+        <div class="item-title">Item 3</div>
+        <div class="item-desc">Deskripsi item</div>
+      </div>
     </div>
   </section>
 
