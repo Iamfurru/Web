@@ -1,94 +1,108 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="id">
 <head>
-<meta charset="UTF-8">
-<title>503 â€” Service Unavailable</title>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Hero Section</title>
 
-<style>
-:root{
-  --black:#000;
-  --dark:#111;
-  --gray:#888;
-  --light:#f4f4f4;
-  --white:#fff;
-}
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+    }
 
-body{
-  margin:0;
-  min-height:100vh;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  font-family:system-ui, sans-serif;
-  background:linear-gradient(to bottom, var(--white), var(--light));
-  color:var(--dark);
-}
+    body {
+      background: #000;
+      color: white;
+    }
 
-.container{
-  max-width:700px;
-  padding:48px 32px;
-  background:var(--white);
-  border:1px solid #ddd;
-  border-radius:18px;
-  text-align:center;
-  box-shadow:0 10px 40px rgba(0,0,0,0.08);
-}
+    .hero {
+      position: relative;
+      width: 100%;
+      height: 100vh;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+    }
 
-.code{
-  font-size:4.5rem;
-  font-weight:700;
-  letter-spacing:4px;
-  color:var(--black);
-}
+    /* Video background */
+    .hero video {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      min-width: 100%;
+      min-height: 100%;
+      transform: translate(-50%, -50%);
+      object-fit: cover;
+      filter: blur(12px) brightness(0.6);
+      z-index: 1;
+    }
 
-h1{
-  margin:16px 0 8px;
-  font-size:1.6rem;
-}
+    /* Overlay content */
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: 800px;
+      padding: 24px;
+    }
 
-p{
-  color:var(--gray);
-  line-height:1.6;
-  margin:12px 0;
-}
+    .hero h1 {
+      font-size: clamp(2rem, 5vw, 3.5rem);
+      margin-bottom: 16px;
+    }
 
-.brand{
-  margin-top:32px;
-  font-weight:600;
-  letter-spacing:1px;
-}
+    .hero p {
+      font-size: 1.1rem;
+      opacity: 0.85;
+      margin-bottom: 32px;
+    }
 
-.footer{
-  margin-top:8px;
-  font-size:0.85rem;
-  color:#aaa;
-}
-</style>
+    .hero-buttons {
+      display: flex;
+      gap: 16px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .hero-btn {
+      padding: 12px 28px;
+      border: 2px solid rgba(255,255,255,0.7);
+      border-radius: 12px;
+      background: transparent;
+      color: white;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: all 0.25s ease;
+    }
+
+    .hero-btn:hover {
+      background: rgba(255,255,255,0.1);
+      border-color: white;
+    }
+  </style>
 </head>
-
 <body>
 
-<div class="container">
-  <div class="code">503</div>
+  <section class="hero">
+    <video autoplay muted loop playsinline>
+      <source src="Hero.mp4" type="video/mp4">
+    </video>
 
-  <h1>Service Unavailable</h1>
+    <div class="hero-content">
+      <h1>Meet Furru project</h1>
+      <p>when ai have feeling</p>
 
-  <p>
-    IAF Digital Engineering is currently preparing
-    its public-facing environment.
-  </p>
-
-  <p>
-    Systems are online, but access is temporarily restricted
-    while core components are being finalized.
-  </p>
-
-  <div class="brand">IAF Digital Engineering</div>
-  <div class="footer">
-    Digital environments Â· Behavioral intelligence Â· Virtual entities
-  </div>
-</div>
+      <div class="hero-buttons">
+        <button class="hero-btn">what is Furru project?</button>
+        <button class="hero-btn">Furru interactive capability</button>
+        <button class="hero-btn">Furru personality</button>
+      </div>
+    </div>
+  </section>
 
 </body>
 </html>
