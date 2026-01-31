@@ -4,7 +4,6 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>IAF Database</title>
-
 <style>
 body{
   margin:0;
@@ -13,10 +12,10 @@ body{
   color:#fff;
   padding-top:90px;
   display:flex;
-  justify-content:center;
+  flex-direction:column;
+  align-items:center;
   overflow-x:hidden;
 }
-
 /* ===== GLOBAL UI ===== */
 .global-ui{
   position:fixed;
@@ -28,18 +27,15 @@ body{
   padding:0 24px;
   z-index:1000;
 }
-
 .menu{
   font-size:28px;
   cursor:pointer;
 }
-
 .logo{
   width:120px;
   height:auto;
   opacity:.9;
 }
-
 /* ===== SIDEBAR (FIXED) ===== */
 .sidebar{
   position:fixed;
@@ -54,28 +50,23 @@ body{
   z-index:1500;
   box-shadow:none;
 }
-
 .sidebar.active{
   transform:translateX(0);
   box-shadow:10px 0 40px rgba(0,0,0,.6);
 }
-
 .sidebar h3{
   margin-top:0;
   font-size:18px;
 }
-
 .sidebar a{
   display:block;
   color:#ccc;
   text-decoration:none;
   padding:10px 0;
 }
-
 .sidebar a:hover{
   color:#fff;
 }
-
 /* ===== ISLAND ===== */
 .card{
   width:760px;
@@ -84,13 +75,11 @@ body{
   padding:24px;
   box-shadow:0 0 35px rgba(0,0,0,.6);
 }
-
 .header{
   display:flex;
   gap:20px;
   align-items:center;
 }
-
 .photo{
   width:160px;
   height:160px;
@@ -102,19 +91,15 @@ body{
   color:#aaa;
   cursor:pointer;
 }
-
 .name{
   font-size:28px;
   font-weight:bold;
 }
-
 .id-line{
   font-size:14px;
   color:#ccc;
 }
-
 .separator{ margin:0 8px; }
-
 /* ===== DETAILS ===== */
 .details{
   margin-top:24px;
@@ -123,27 +108,36 @@ body{
   gap:12px 24px;
   font-size:14px;
 }
-
 .label{
   font-size:12px;
   color:#888;
 }
-
 /* ===== DESCRIPTION ===== */
 .description{
   margin:28px 0;
   line-height:1.6;
   color:#ddd;
 }
-
 /* ===== GALLERY ===== */
 .gallery{
   display:grid;
-  grid-template-columns:repeat(4,1fr);
+  grid-template-columns:repeat(2,1fr); /* 2 kolom */
   gap:14px;
 }
-
-.gallery img{
+.section-title{
+  grid-column:1/-1; /* span semua kolom */
+  font-size:14px;
+  color:#ccc;
+  font-weight:bold;
+  margin-bottom:6px;
+  text-align:left;
+}
+.gallery-item{
+  display:flex;
+  flex-direction:column;
+  text-align:center;
+}
+.gallery-item img{
   width:100%;
   aspect-ratio:1/1;
   object-fit:cover;
@@ -151,9 +145,21 @@ body{
   cursor:pointer;
   transition:.2s;
 }
-
-.gallery img:hover{
+.gallery-item img:hover{
   transform:scale(1.04);
+}
+.caption{
+  font-size:12px;
+  color:#aaa;
+  margin-top:4px;
+}
+/* ===== COPYRIGHT ===== */
+.copyright{
+  margin-top:20px;     /* jarak dari atas card */
+  margin-bottom:40px;  /* jarak dari bawah layar */
+  font-size:12px;
+  color:#777;
+  text-align:center;
 }
 
 /* ===== MODAL ===== */
@@ -166,25 +172,21 @@ body{
   justify-content:center;
   z-index:2000;
 }
-
 .modal.active{ display:flex; }
-
 .modal img{
   max-width:90%;
   max-height:90%;
   border-radius:14px;
 }
-
 /* ===== RESPONSIVE ===== */
 @media(max-width:650px){
   .card{ width:92%; }
   .header{ flex-direction:column; align-items:flex-start; }
   .details{ grid-template-columns:1fr; }
-  .gallery{ grid-template-columns:repeat(2,1fr); }
+  .gallery{ grid-template-columns:1fr; gap:16px; }
 }
 </style>
 </head>
-
 <body>
 
 <!-- SIDEBAR -->
@@ -204,7 +206,6 @@ body{
 
 <!-- ISLAND -->
 <div class="card">
-
   <div class="header">
     <div class="photo" onclick="openModal('PP.png')">
       <img src="PP.png" alt="Profile Picture" style="width:100%; height:100%; border-radius:14px; object-fit:cover;">
@@ -235,13 +236,36 @@ body{
 
   <br>
 
+  <!-- ===== GALLERY 2x2 ===== -->
   <div class="gallery">
-    <img src="img1.png" onclick="openModal(this.src)">
-    <img src="img2.png" onclick="openModal(this.src)">
-    <img src="img3.png" onclick="openModal(this.src)">
-    <img src="img4.png" onclick="openModal(this.src)">
-  </div>
+    <div class="section-title">Body Profile</div>
 
+    <div class="gallery-item">
+      <img src="img1.png" onclick="openModal(this.src)">
+      <div class="caption">Front</div>
+    </div>
+
+    <div class="gallery-item">
+      <img src="img2.png" onclick="openModal(this.src)">
+      <div class="caption">Side</div>
+    </div>
+
+    <div class="gallery-item">
+      <img src="img3.png" onclick="openModal(this.src)">
+      <div class="caption">Back</div>
+    </div>
+
+    <div class="gallery-item">
+      <img src="img4.png" onclick="openModal(this.src)">
+      <div class="caption">Detail / Close Up</div>
+    </div>
+
+  </div>
+</div> <!-- end card -->
+
+<!-- COPYRIGHT DI LUAR ISLAND -->
+<div class="copyright">
+  © C2025 IAF Digital Engineering - Furru project
 </div>
 
 <!-- MODAL -->
@@ -270,7 +294,6 @@ function openModal(src){
   document.getElementById("modal-img").src = src;
   document.getElementById("modal").classList.add("active");
 }
-
 function closeModal(){
   document.getElementById("modal").classList.remove("active");
 }
