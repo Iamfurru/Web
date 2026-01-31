@@ -14,7 +14,7 @@ body{
   padding-top:90px;
   display:flex;
   justify-content:center;
-  overflow-x:hidden; /* FIX BO COR */
+  overflow-x:hidden;
 }
 
 /* ===== GLOBAL UI ===== */
@@ -35,7 +35,7 @@ body{
 }
 
 .logo{
-  width:120px; /* 16:9 */
+  width:120px;
   height:auto;
   opacity:.9;
 }
@@ -49,10 +49,8 @@ body{
   height:100vh;
   background:#14141b;
   padding:24px;
-
   transform:translateX(-100%);
   transition:transform .3s ease;
-
   z-index:1500;
   box-shadow:none;
 }
@@ -102,6 +100,7 @@ body{
   align-items:center;
   justify-content:center;
   color:#aaa;
+  cursor:pointer;
 }
 
 .name{
@@ -207,11 +206,11 @@ body{
 <div class="card">
 
   <div class="header">
-    <div class="photo">
-  <img src="PP.png" alt="Profile Picture" style="width:100%; height:100%; border-radius:14px; object-fit:cover;">
-</div>
+    <div class="photo" onclick="openModal('PP.png')">
+      <img src="PP.png" alt="Profile Picture" style="width:100%; height:100%; border-radius:14px; object-fit:cover;">
+    </div>
     <div>
-      <div class="name">Deu</div>
+      <div class="name">Nama Subjek</div>
       <div class="id-line">
         <span>SN: FP001</span>
         <span class="separator">|</span>
@@ -251,10 +250,22 @@ body{
 </div>
 
 <script>
+const sidebar = document.getElementById("sidebar");
+const menuBtn = document.querySelector(".menu");
+
+// Toggle sidebar
 function toggleSidebar(){
-  document.getElementById("sidebar").classList.toggle("active");
+  sidebar.classList.toggle("active");
 }
 
+// Tutup sidebar kalau klik di luar
+document.addEventListener("click", function(e){
+  if(sidebar.classList.contains("active") && !sidebar.contains(e.target) && !menuBtn.contains(e.target)){
+    sidebar.classList.remove("active");
+  }
+});
+
+// Modal gallery & PP
 function openModal(src){
   document.getElementById("modal-img").src = src;
   document.getElementById("modal").classList.add("active");
